@@ -2,8 +2,6 @@ import { VeiculosService } from './../../veiculos.service';
 import { Veiculos } from './../veiculos';
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { AuthService } from './../../auth.service';
-import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator'
-import {MatLegacyTableDataSource as MatTableDataSource} from '@angular/material/legacy-table';
 
 @Component({
   selector: 'app-veiculos-lista',
@@ -12,21 +10,11 @@ import {MatLegacyTableDataSource as MatTableDataSource} from '@angular/material/
 })
 export class VeiculosListaComponent implements OnInit {
 
-  displayedColumns: string[] = ['descricao', 'placa'];
   vei: Veiculos[] = [];
   usuarioLogadoTela = this.authService.getUsuarioAutenticado();
   veiculoSelecionado: Veiculos;
   mensagemSucesso: string;
   mensagemErro: string;
-
-  dataSource = new MatTableDataSource<veic>();
-
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
 
 
   constructor(
@@ -56,7 +44,4 @@ export class VeiculosListaComponent implements OnInit {
 
 }
 
-export interface veic {
-  descricao: string;
-  placa: number;
-}
+
