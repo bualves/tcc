@@ -2,8 +2,8 @@ import { VeiculosService } from './../../veiculos.service';
 import { Veiculos } from './../veiculos';
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { AuthService } from './../../auth.service';
-import { MatPaginator } from '@angular/material/paginator'
-import {MatTableDataSource} from '@angular/material/table';
+import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator'
+import {MatLegacyTableDataSource as MatTableDataSource} from '@angular/material/legacy-table';
 
 @Component({
   selector: 'app-veiculos-lista',
