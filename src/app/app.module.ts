@@ -1,3 +1,4 @@
+import { FreteModule } from './frete/frete.module';
 import { VeiculosService } from './veiculos.service';
 import { VeiculosModule } from './veiculos/veiculos.module';
 import { MotoristasService } from './motoristas.service';
@@ -40,7 +41,8 @@ import { LayoutComponent } from './layout/layout.component';
     FormsModule,
     MotoristasModule,
     VeiculosModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FreteModule
   ],
   providers: [
     ClientesService,
