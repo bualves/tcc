@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: 'veiculos', component: LayoutComponent, canActivate:[AuthGuard], children: [
     {path: 'cadastro', component: VeiculosCadastroComponent},
     {path: 'lista', component: VeiculosListaComponent},
-    {path: 'cadastro:id', component: VeiculosCadastroComponent},
+    {path: 'cadastro/:id', component: VeiculosCadastroComponent},
     {path: '' , redirectTo: '/veiculos/lista', pathMatch: 'full'}
   ]}
 ];
