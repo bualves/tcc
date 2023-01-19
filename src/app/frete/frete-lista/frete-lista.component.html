@@ -1,1 +1,75 @@
-<p>frete-lista works!</p>
+
+<h1 class="mt-4">Frete</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-bitem active"></li>
+</ol>
+
+<div>
+  <button type="button" routerLink="/frete/cadastro" class="btn btn-warning">
+    <i class="fa fa-plus"></i> Cadastrar Frete
+  </button>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th>Motorista</th>
+            <th>Veiculo</th>
+            <th>Cidade Origem</th>
+            <th>Cidade Destino</th>
+            <th>Data Inicio</th>
+            <th>Data Final</th>
+            <th>Status Pagamento</th>
+            <th>Status Frete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let frete of fre">
+            <td>{{frete.motorista}}</td>
+            <td>{{frete.veiculo}}</td>
+            <td>{{frete.cidadeOrigem}}</td>
+            <td>{{frete.cidadeDestino}}</td>
+            <td>{{frete.dataInicio}}</td>
+            <td>{{frete.dataFinal}}</td>
+            <td>{{frete.statusPagamento}}</td>
+            <td>{{frete.statusFrete}}</td>
+            <td>
+              <button class="btn btn-primary"
+                      routerLink="/frete/cadastro/{{frete.id}}">
+                <i class="fa fa-edit"></i>
+              </button>
+
+              <button class="btn btn-danger" (click)="preparaDelecao(frete)" data-bs-toggle="modal" data-bs-target="#modalDelecao" >
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="modalDelecao" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4>Confirmação</h4>
+        </div>
+
+        <div class="modal-body" *ngIf="freteSelecionado">
+         Confirma a deleção do(a) cliente {{freteSelecionado.motorista}} ?
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-success" (click)="deletarFrete()" data-dismiss="modal">Confirmar</button>
+          <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

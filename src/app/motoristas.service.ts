@@ -23,7 +23,7 @@ export class MotoristasService {
     return this.http.post<Motoristas>(this.apiURL, Motoristas)
   }
 
-  /*getMotoristas(usuarioLogado: string) : Observable<Motoristas[]>
+  /*getMotoristasUsuario(usuarioLogado: string) : Observable<Motoristas[]>
   {
     const httpParams = new HttpParams()
     .set("" , usuarioLogado.toString());

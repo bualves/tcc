@@ -1,0 +1,11 @@
+#embaixo
+{
+  position: fixed;
+  bottom:0;
+}
+
+#link
+{
+  position: fixed;
+  right: 1%;
+}

@@ -1,1 +1,135 @@
-<p>frete-cadastro works!</p>
+<h1 class="mt-4">Frete</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">{{ servico.id ? 'Edição' : 'Cadastro'}}</li>
+</ol>
+
+<div class="container">
+  <form #motoristaForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-6">
+          <div class="alert alert-success" role="alert" *ngIf="success == true">
+            Frete salvo/atualizado com sucesso!
+          </div>
+          <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
+            {{ erro }}
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Motorista:</label>
+          <select class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="servico.motorista">
+            <option value="">Selecione...</option>
+            <option *ngFor="let motorista of motorista" [ngValue]="motorista.nome">
+              {{motorista.nome}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Veiculo:</label>
+          <select class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="servico.veiculo">
+            <option value="">Selecione...</option>
+            <option *ngFor="let veiculos of veiculo" [ngValue]="veiculos.placa">
+              {{veiculos.placa}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Contratante:</label>
+          <input type="text" class="form-control" [(ngModel)]="servico.contratanteFrete" name="contratanteFrete"/>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Cidade de Origem:</label>
+          <input type="text" class="form-control" [(ngModel)]="servico.cidadeOrigem" name="cidadeOrigem"/>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Cidade de Destino:</label>
+          <input type="text" class="form-control" [(ngModel)]="servico.cidadeDestino" name="cidadeDestino"/>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Data de Inicio:</label>
+          <input type="date" class="form-control" [(ngModel)]="servico.dataInicio" name="dataInicio"/>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Data de Chegada:</label>
+          <input type="date" class="form-control" [(ngModel)]="servico.dataFinal" name="dataFinal"/>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Valor do Frete:</label>
+          <input type="text" class="form-control" [(ngModel)]="servico.valorTotal" name="valorTotal"/>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Valor Pago:</label>
+          <input type="text" class="form-control" [(ngModel)]="servico.valorPago" name="valorPago"/>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label for="inputStatusFrete">Status Frete:</label>
+        <select [(ngModel)]="servico.statusFrete" class="form-control" name="statusFrete">
+          <option value="">Selecione...</option>
+          <option *ngFor="let statusFrete of statusFretes" [value]="statusFrete">
+            {{statusFrete}}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label for="inputStatusFrete">Status Pagamento:</label>
+        <select [(ngModel)]="servico.statusPagamento" class="form-control" name="statusPagamento">
+          <option value="">Selecione...</option>
+          <option *ngFor="let statusPagamento of statusPagamentos" [value]="statusPagamento">
+            {{statusPagamento}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2">
+        <button type="submit" class="btn-success" *ngIf="!servico.id">
+          <i class="fa fa-save"></i> Salvar
+        </button>
+      </div>
+
+      <div class="col-md-2">
+        <button type="submit" class="btn-primary" *ngIf="servico.id">
+          <i class="fa fa-refresh"></i> Atualizar
+        </button>
+      </div>
+
+      <div class="col-md-2">
+        <button type="submit" class="btn-danger" (click)="voltarParaListagem()">
+          <i class="fa fa-arrow-alt-circle-left"></i> Voltar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
