@@ -37,8 +37,8 @@ export class FreteCadastroComponent implements OnInit {
     private veiculoService: VeiculosService)
     {
     this.servico = new Frete();
-    this.statusFretes = ['EM ANDAMENTO', 'ENCERRADO'];
-    this.statusPagamentos = ['FALTA PAGAMENTO', 'PAGO', 'NÃO PAGO'];
+    this.statusFretes = ['Em Andamento', 'Encerrado'];
+    this.statusPagamentos = ['Falta Pagamento', 'Pago', 'Não Pago'];
    }
 
    ngOnInit(): void {
