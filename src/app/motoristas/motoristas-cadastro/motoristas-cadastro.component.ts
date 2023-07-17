@@ -17,6 +17,8 @@ export class MotoristasCadastroComponent implements OnInit {
   success: boolean = false;
   errors: String[];
   usuarioLogadoTela: string;
+  categoriaCNH: string;
+  categoriasCNH: string[];
 
   constructor(
     private service: MotoristasService,
@@ -25,6 +27,7 @@ export class MotoristasCadastroComponent implements OnInit {
     private activatedRoute: ActivatedRoute)
     {
     this.servico = new Motoristas();
+    this.categoriasCNH = ['A', 'B', 'C', 'D', 'E'];
    }
 
   ngOnInit(): void {
