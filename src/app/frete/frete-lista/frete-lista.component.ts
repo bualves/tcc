@@ -16,6 +16,8 @@ export class FreteListaComponent implements OnInit {
   freteSelecionado: Frete;
   mensagemSucesso: string;
   mensagemErro: string;
+  valorpago: number;
+  valortotal: number;
 
   constructor(
     private service: FreteService,
@@ -40,5 +42,10 @@ export class FreteListaComponent implements OnInit {
     .subscribe(response => {this.mensagemSucesso = 'Frete deletado com sucesso!'
     this.ngOnInit()},
     erro => this.mensagemErro = 'Ocorreu um erro ao deletar o frete!')
+  }
+
+  calcular(valortotal: number, valorpago: number)
+  {
+    return valortotal - valorpago;
   }
 }

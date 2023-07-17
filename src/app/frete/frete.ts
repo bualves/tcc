@@ -6,11 +6,12 @@ export class Frete {
   cidadeOrigem: string;
   cidadeDestino: string;
   estado: string;
-  valorTotal: string;
-  valorPago: string;
+  valorTotal: number;
+  valorPago: number;
   statusFrete: string;
   statusPagamento: string;
   dataInicio: string;
   dataFinal: string;
   usuarioLogado: string;
+  valorFinal: number;
 }

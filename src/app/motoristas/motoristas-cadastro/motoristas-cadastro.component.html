@@ -54,8 +54,13 @@
 
       <div class="col-md-6">
         <div class="form-group">
-          <label>Categoria CNH:</label>
-          <input type="text" class="form-control" [(ngModel)]="servico.categoriaCNH" name="categoriaCNH"/>
+          <label for="inputCategoria">Categoria CNH:</label>
+          <select [(ngModel)]="servico.categoriaCNH" class="form-control" name="categoriaCnh">
+            <option value="">Selecione...</option>
+            <option *ngFor="let categoriaCNH of categoriasCNH" [value]="categoriaCNH">
+              {{categoriaCNH}}
+            </option>
+          </select>
         </div>
       </div>
     </div>

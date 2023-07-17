@@ -9,7 +9,6 @@
     <i class="fa fa-plus"></i> Cadastrar Frete
   </button>
 </div>
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -24,6 +23,7 @@
             <th>Data Final</th>
             <th>Status Pagamento</th>
             <th>Status Frete</th>
+            <th>Valor Receber</th>
           </tr>
         </thead>
         <tbody>
@@ -34,14 +34,16 @@
             <td>{{frete.cidadeDestino}}</td>
             <td>{{frete.dataInicio}}</td>
             <td>{{frete.dataFinal}}</td>
-            <td>{{frete.statusPagamento}}</td>
-            <td>{{frete.statusFrete}}</td>
+            <td [ngClass]="frete.statusPagamento == 'Pago' ? 'verde' : 'vermelho'">{{frete.statusPagamento}}</td>
+            <td [ngClass]="frete.statusFrete == 'Encerrado' ? 'verde' : 'azul'">{{frete.statusFrete}}</td>
+            <td [ngClass]="calcular(frete.valorTotal, frete.valorPago) == 0 ? 'verde' : 'vermelho'">{{calcular(frete.valorTotal, frete.valorPago)}}</td>
             <td>
               <button class="btn btn-primary"
                       routerLink="/frete/cadastro/{{frete.id}}">
                 <i class="fa fa-edit"></i>
               </button>
-
+            </td>
+            <td>
               <button class="btn btn-danger" (click)="preparaDelecao(frete)" data-bs-toggle="modal" data-bs-target="#modalDelecao" >
                 <i class="fa fa-trash"></i>
               </button>
